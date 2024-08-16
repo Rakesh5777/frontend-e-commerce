@@ -1,0 +1,15 @@
+.productImg{
+    width:7rem;
+    height:7rem;
+    margin:0 auto;
+}
+.productTitle{
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+.productPrice{
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+}

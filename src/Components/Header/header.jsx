@@ -1,5 +1,5 @@
 import './header.css';
-import Search from './Search/search';
+import Search from '../Search/search';
 
 function Header() {
   return (
