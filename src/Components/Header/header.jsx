@@ -8,7 +8,7 @@ const cart =(e)=>{
 }
   return (
     <div className="header">
-     <div className="col-4">TradeWave</div>
+      <div className=" text-4xl text-pink-500 col-4">I love you bby</div>
     </div>
   );
 }
