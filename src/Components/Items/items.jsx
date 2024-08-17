@@ -7,7 +7,7 @@ function Items({ product }) {
             <h2 className='productTitle'>{product.title}</h2>
             <p className='productPrice'>${product.price}</p>
             <div className='flex flex-row'>
-            <button className='productButton basis-1/2'>Add to cart</button>
+            <button className='productButton basis-2/5'>Add to cart</button>
             <button claaaName = 'wishlistButton basis-1/2'>Add to Wishlist</button>
             </div>
             

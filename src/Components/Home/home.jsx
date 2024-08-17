@@ -1,46 +1,47 @@
-import Header from '../Header/header'
-import Filter from '../Filter/filter' 
-import Cardcontainer from '../Card container/cardcontainer'
-import {React, useState, useEffect} from 'react'
-function Home(){
+import { React, useState, useEffect } from 'react';
+import Header from '../Header/header';
+import Nav from '../Nav/nav';
+import Filter from '../Filter/filter'; 
+import Cardcontainer from '../Card container/cardcontainer';
+import './home.css';
 
-    const [loading, setLoading] = useState(true);
-const [products, setProducts] = useState([]);
+function Home() {
+  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
 
-useEffect(() => {
+  useEffect(() => {
     fetch('https://fakestoreapi.com/products')
-    .then(res => res.json())
-    .then(json => {
+      .then(res => res.json())
+      .then(json => {
         setProducts(json);
         setLoading(false);
-        console.log(products)
-    })
-   
-    .catch(error => {
+      })
+      .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
         setLoading(false);
-    });
-}, []);
+      });
+  }, []);
 
-if (loading) return <p>Loading...</p>;
+  if (loading) return <p>Loading...</p>;
 
-return(
+  return (
     <>
-    <div className="flex flex-row">
-    <div>
-      <Header />
-    </div>
-  </div>
-  <div className="rflex flex-rowow">
-    <div className="basis-2/5">
-      <Filter />
-    </div>
-    <div className="basis-3/5	">
-      <Cardcontainer data={products} />
-    </div>
-  </div>
-  </>
-)
-
+      <div className="flex flex-row">
+        <Header />
+      </div>
+      <div className="flex flex-row">
+        <Nav />
+      </div>
+      <div className="flex flex-row">
+        <div className="basis-2/5">
+          <Filter />
+        </div>
+        <div className="basis-3/5">
+          <Cardcontainer data={products} />
+        </div>
+      </div>
+    </>
+  );
 }
-export default Home
+
+export default Home;
