@@ -1,32 +1,31 @@
 import { React, useState, useEffect } from 'react';
-import Header from '../Header/header';
-import Nav from '../Nav/nav';
+import Search from '../Search/search'
+import { fetchProducts } from '../../api';
 import Filter from '../Filter/filter';
 import Cardcontainer from '../Card container/cardcontainer';
 import './home.css';
 
 function Home() {
-  const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then(res => res.json())
-      .then(json => {
-        setProducts(json);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-        setLoading(false);
-      });
-  }, []);
+    const getProducts = async () => {
+      const productList = await fetchProducts(query ? `?category=${query}` : '');
+      setProducts(productList);
+    };
 
-  if (loading) return <p>Loading...</p>;
+    getProducts();
+  }, [setQuery]);
 
+  const handleSearch = (searchTerm) => {
+    console.log(searchTerm);
+    setQuery(searchTerm);
+  };
   return <>
     <div className="flex flex-row">
-      <Header />
+      <Search onSearch={handleSearch} />
+      <Cardcontainer products={products}/>
     </div>
     {/* <div className="flex flex-row">
       <Nav />

@@ -1,5 +1,5 @@
 import './header.css';
-import Search from '../Search/search';
+import Home from '../Home/home'
 
 function Header() {
 
@@ -8,7 +8,7 @@ const cart =(e)=>{
 }
   return (
     <div className="header">
-      <div className=" text-4xl text-pink-500 col-4">I love you bby</div>
+      <Home/>
     </div>
   );
 }

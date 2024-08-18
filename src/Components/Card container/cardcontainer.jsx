@@ -1,9 +1,9 @@
 import './cardcontainer.css';
 import Items from '../Items/items';
-function Cardcontainer({data}) {
+function Cardcontainer({products}) {
     return (
         <div className="cardcontainer">
-            {data.map(product => (
+            {products.map(product => (
                 <Items key={product.id} product={product} />
             ))}
         </div>

@@ -1,11 +1,20 @@
-import './search.css';
+import React from 'react';
 
-function Search() {
+const SearchComponent = ({ onSearch }) => {
+  const handleInputChange = (e) => {
+    console.log(e.target.value);
+    onSearch(e.target.value);
+  };
+
   return (
-    <div className="search">
-      <input type="text" placeholder="Search..." />
-      <button>Search</button>
+    <div>
+      <input
+        type="text"
+        onChange={handleInputChange}
+        placeholder="Search by product name or category"
+      />
     </div>
   );
-}
-export default Search;
+};
+
+export default SearchComponent;
